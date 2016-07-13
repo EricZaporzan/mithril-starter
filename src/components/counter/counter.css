@@ -1,0 +1,10 @@
+.counter {
+  & > span {
+    display: block;
+    font-size: 60px;
+  }
+  & > button {
+    padding: 10px;
+    margin-right: 10px;
+  }
+}
