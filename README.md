@@ -1,4 +1,4 @@
-# mithril-redux-starter-webpack
+# mithril-starter
 
 # including modules
 
