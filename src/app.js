@@ -7,7 +7,7 @@ m.route.mode = 'hash';
 
 m.route(document.body, '/',
   {
-    '/': m(Layout, {}, m(Counter)),
-    '/todo': m(Layout, {}, m(Todo)),
+    '/': { render: () => m(Layout, {}, m(Counter)) },
+    '/todo': { render: () => m(Layout, {}, m(Todo)) },
   }
 );

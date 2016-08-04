@@ -1,22 +1,19 @@
 import m from 'mithril';
 
-const isActive = (current) => (route) => {
-  return current === route ? '.active' : '';
-};
+const isActive = current => route => (current === route ? '.active' : '');
 
 const Layout = {
-  controller() {
-    this.active = isActive(m.route());
+  oninit() {
+    this.active = isActive(m.route.get());
   },
 
-  view(ctrl, props, children) {
-    const { active } = ctrl;
+  view(vnode) {
     return m('.container', [
       m('header', [
-        m(`a${active('/')}`, { href: '/', config: m.route }, 'Counter'),
-        m(`a${active('/todo')}`, { href: '/todo', config: m.route }, 'Todo'),
+        m(`a${vnode.state.active('/')}`, { href: '/', oncreate: m.route.link }, 'Counter'),
+        m(`a${vnode.state.active('/todo')}`, { href: '/todo', oncreate: m.route.link }, 'Todo'),
       ]),
-      m(children),
+      vnode.children,
     ]);
   },
 };
