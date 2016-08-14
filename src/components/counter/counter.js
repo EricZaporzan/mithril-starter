@@ -4,17 +4,17 @@ import CounterVM from '../../models/counter';
 const counterVm = new CounterVM();
 
 const Counter = {
-  controller() {
+  oninit() {
     this.vm = counterVm;
   },
 
-  view(ctrl) {
+  view(vnode) {
     return m('.counter', [
       m('h2', 'Counter'),
-      m('span', ctrl.vm.count()),
-      m('button', { onclick: () => ctrl.vm.increment() }, '+'),
-      m('button', { onclick: () => ctrl.vm.decrement() }, '-'),
-      m('button', { onclick: () => ctrl.vm.reset() }, 'reset'),
+      m('span', vnode.state.vm.count()),
+      m('button', { onclick: () => vnode.state.vm.increment() }, '+'),
+      m('button', { onclick: () => vnode.state.vm.decrement() }, '-'),
+      m('button', { onclick: () => vnode.state.vm.reset() }, 'reset'),
     ]);
   },
 };
