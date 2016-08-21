@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "mithril": "git@github.com:lhorie/mithril.js.git#rewrite",
-    "lodash": "^4.14.1",
+    "lodash": "^4.14.1"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
