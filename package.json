@@ -13,6 +13,10 @@
     "test": "babel-node spec/support/test.js",
     "lint": "eslint ./src ./spec"
   },
+  "dependencies": {
+    "mithril": "git@github.com:lhorie/mithril.js.git#rewrite",
+    "lodash": "^4.14.1",
+  },
   "devDependencies": {
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
@@ -39,9 +43,7 @@
     "jasmine": "^2.4.1",
     "jasmine-expect": "^2.0.2",
     "json-loader": "^0.5.4",
-    "lodash": "^4.14.1",
     "lost": "^7.0.3",
-    "mithril": "git@github.com:lhorie/mithril.js.git#rewrite",
     "mithril-query": "^1.0.0",
     "postcss": "^5.1.1",
     "postcss-cssnext": "^2.7.0",
