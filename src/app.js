@@ -5,9 +5,9 @@ import Todo from './components/todo/todo';
 
 m.route.mode = 'hash';
 
-m.route(document.body, '/',
+m.route(document.body, '/', // eslint-disable-line
   {
-    '/': { render: () => m(Layout, {}, m(Counter)) },
-    '/todo': { render: () => m(Layout, {}, m(Todo)) },
+    '/': { view: () => m(Layout, {}, m(Counter)) },
+    '/todo': { view: () => m(Layout, {}, m(Todo)) },
   }
 );
