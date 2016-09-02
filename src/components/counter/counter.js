@@ -1,11 +1,9 @@
 import m from 'mithril';
 import CounterVM from '../../models/counter';
 
-const counterVm = new CounterVM();
-
 const Counter = {
   oninit() {
-    this.vm = counterVm;
+    this.vm = new CounterVM();
   },
 
   view() {

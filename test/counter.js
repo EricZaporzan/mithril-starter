@@ -27,7 +27,6 @@ describe('Counter', () => {
         output.click('.increment');
         output.click('.increment');
         expect(output.first('span')).to.have.property('text').and.equal(2);
-        output.click('.reset');
       });
     });
 
@@ -45,6 +44,8 @@ describe('Counter', () => {
       it('renders a count of zero', () => {
         const output = mq(m(Counter));
 
+        output.click('.increment');
+        output.click('.increment');
         output.click('.reset');
         expect(output.first('span')).to.have.property('text').and.equal(0);
       });
