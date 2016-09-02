@@ -8,13 +8,13 @@ const Counter = {
     this.vm = counterVm;
   },
 
-  view(vnode) {
+  view() {
     return m('.counter', [
       m('h2', 'Counter'),
-      m('span', vnode.state.vm.count()),
-      m('button', { onclick: () => vnode.state.vm.increment() }, '+'),
-      m('button', { onclick: () => vnode.state.vm.decrement() }, '-'),
-      m('button', { onclick: () => vnode.state.vm.reset() }, 'reset'),
+      m('span', this.vm.count()),
+      m('button.increment', { onclick: () => this.vm.increment() }, '+'),
+      m('button.decrement', { onclick: () => this.vm.decrement() }, '-'),
+      m('button.reset', { onclick: () => this.vm.reset() }, 'reset'),
     ]);
   },
 };
