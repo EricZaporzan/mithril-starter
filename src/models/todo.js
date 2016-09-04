@@ -30,4 +30,8 @@ export default class TodoList {
     this.todos.map(todo => todo.completed() || r++);
     return r;
   }
+
+  clearAll() {
+    this.todos = [];
+  }
 }

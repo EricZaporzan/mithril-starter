@@ -1,13 +1,15 @@
 import m from 'mithril';
 import CounterVM from '../../models/counter';
 
+const counterVM = new CounterVM();
+
 const Counter = {
   oninit() {
-    this.vm = new CounterVM();
+    this.vm = counterVM;
   },
 
   view() {
-    return m('.counter', [
+    return m('.Counter', [
       m('h2', 'Counter'),
       m('span', this.vm.count()),
       m('button.increment', { onclick: () => this.vm.increment() }, '+'),
