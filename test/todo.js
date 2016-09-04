@@ -26,7 +26,7 @@ describe('Todo', () => {
     describe('when adding a todo item', () => {
       it('shows up in the list', () => {
         output.setValue('input', 'test item1');
-        output.click('.add');
+        output.trigger('form', 'submit');
         output.should.have(1, '.Todo-item');
         expect(output.first('.Todo-item > span')).to.have.property('text').and.equal('test item1');
         expect(output.first('.remaining')).to.have.property('text').and.equal('Remaining todos 1');
@@ -36,11 +36,11 @@ describe('Todo', () => {
     describe('when adding multiple todo items', () => {
       it('contains a list of all added todos', () => {
         output.setValue('input', 'test item1');
-        output.click('.add');
+        output.trigger('form', 'submit');
         output.setValue('input', 'test item2');
-        output.click('.add');
+        output.trigger('form', 'submit');
         output.setValue('input', 'test item3');
-        output.click('.add');
+        output.trigger('form', 'submit');
         output.should.have(3, '.Todo-item');
         expect(output.first('.remaining')).to.have.property('text').and.equal('Remaining todos 3');
 
@@ -51,19 +51,21 @@ describe('Todo', () => {
     });
 
     describe('when toggling a todo to complete', () => {
-      it('shows todo with a completed class', () => {
+      it('shows todo with a completed class if complete', () => {
         output.setValue('input', 'test item1');
-        output.click('.add');
+        output.trigger('form', 'submit');
         output.setValue('input', 'test item2');
-        output.click('.add');
+        output.trigger('form', 'submit');
         output.setValue('input', 'test item3');
-        output.click('.add');
+        output.trigger('form', 'submit');
 
-        expect(output.first('.remaining')).to.have.property('text').and.equal('Remaining todos 3');
         output.click('.Todo-item > span');
-
         expect(output.first('.remaining')).to.have.property('text').and.equal('Remaining todos 2');
         expect(output.first('.Todo-item > span').attrs).to.have.property('className').and.equal('completed');
+
+        output.click('.Todo-item > span');
+        expect(output.first('.remaining')).to.have.property('text').and.equal('Remaining todos 3');
+        expect(output.first('.Todo-item > span').attrs).to.have.property('className').and.equal('');
       });
     });
   });
@@ -71,11 +73,11 @@ describe('Todo', () => {
   describe('when toggling hide completed todos', () => {
     it('shows only outstanding todos', () => {
       output.setValue('input', 'test item1');
-      output.click('.add');
+      output.trigger('form', 'submit');
       output.setValue('input', 'test item2');
-      output.click('.add');
+      output.trigger('form', 'submit');
       output.setValue('input', 'test item3');
-      output.click('.add');
+      output.trigger('form', 'submit');
 
       output.click('.toggle-completed');
       output.should.have(3, '.Todo-item');
@@ -102,11 +104,11 @@ describe('Todo', () => {
   describe('when deleting a todo item', () => {
     it('should be removed from the list', () => {
       output.setValue('input', 'test item1');
-      output.click('.add');
+      output.trigger('form', 'submit');
       output.setValue('input', 'test item2');
-      output.click('.add');
+      output.trigger('form', 'submit');
       output.setValue('input', 'test item3');
-      output.click('.add');
+      output.trigger('form', 'submit');
 
       output.should.have(3, '.Todo-item');
       expect(output.first('.remaining')).to.have.property('text').and.equal('Remaining todos 3');

@@ -30,16 +30,19 @@ const Todo = {
 
     return m('.Todo', [
       m('h2', 'Todo List'),
-      m('input', {
-        onchange: m.withAttr('value', this.newTodo),
-        placeholder: 'new todo',
-        value: this.newTodo() }),
-      m('button.add', {
-        onclick: () => {
+      m('form', {
+        onsubmit: (e) => {
+          if (e) e.preventDefault();
           this.vm.add(this.newTodo());
           this.newTodo('');
         },
-      }, 'Add'),
+      }, [
+        m('input', {
+          oninput: m.withAttr('value', this.newTodo),
+          placeholder: 'new todo',
+          value: this.newTodo() }),
+        m('button.add', 'Add'),
+      ]),
       m('button.clear', { onclick: () => this.vm.clearAll() }, 'Clear All'),
       m('button.toggle-completed', {
         class: this.vm.hideCompleted() ? 'hidden' : '',
