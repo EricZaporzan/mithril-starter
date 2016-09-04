@@ -21,8 +21,8 @@ export default class TodoList {
     this.todos.push(new Todo(todo));
   }
 
-  remove(todoIndex) {
-    this.todos.splice(todoIndex, 1);
+  remove(todo) {
+    this.todos.splice(this.todos.indexOf(todo), 1);
   }
 
   remaining() {

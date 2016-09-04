@@ -17,9 +17,9 @@ const Todo = {
       }
 
       return m('.Todo-list',
-        this.vm.todos.filter(filterCompleted).map((todo, index) => m('.Todo-item', [
+        this.vm.todos.filter(filterCompleted).map((todo, index) => m('.Todo-item', { key: index }, [
           m('span', { class: completed(todo), onclick: () => todo.toggleComplete() }, todo.title()),
-          m('button', { onclick: () => this.vm.remove(index) }, 'x'),
+          m('button', { onclick: () => this.vm.remove(todo) }, 'x'),
         ]))
       );
     };

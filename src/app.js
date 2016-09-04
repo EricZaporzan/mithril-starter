@@ -7,7 +7,7 @@ m.route.mode = 'hash';
 
 m.route(document.body, '/', // eslint-disable-line
   {
-    '/': { view: () => m(Layout, {}, m(Counter)) },
-    '/todo': { view: () => m(Layout, {}, m(Todo)) },
+    '/': { view: () => m(Layout, m(Counter)) },
+    '/todo': { view: () => m(Layout, m(Todo)) },
   }
 );
