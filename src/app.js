@@ -9,5 +9,5 @@ m.route(document.body, '/', // eslint-disable-line
   {
     '/': { view: () => m(Layout, m(Counter)) },
     '/todo': { view: () => m(Layout, m(Todo)) },
-  }
+  },
 );
