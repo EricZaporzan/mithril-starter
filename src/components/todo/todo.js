@@ -1,4 +1,5 @@
 import m from 'mithril';
+import prop from 'mithril/stream';
 import TodoVM from '../../models/todo';
 
 const todoVM = new TodoVM();
@@ -9,7 +10,7 @@ const filterCompleted = todo => !(todoVM.hideCompleted() && todo.completed());
 const Todo = {
   oninit() {
     this.vm = todoVM;
-    this.newTodo = m.prop('');
+    this.newTodo = prop('');
 
     this.showTodoList = () => {
       if (this.vm.todos.length === 0) {

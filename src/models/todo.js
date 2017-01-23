@@ -1,9 +1,10 @@
 import m from 'mithril';
+import prop from 'mithril/stream';
 
 class Todo {
   constructor(title) {
-    this.completed = m.prop(false);
-    this.title = m.prop(title);
+    this.completed = prop(false);
+    this.title = prop(title);
   }
 
   toggleComplete() {
@@ -14,7 +15,7 @@ class Todo {
 export default class TodoList {
   constructor() {
     this.todos = [];
-    this.hideCompleted = m.prop(false);
+    this.hideCompleted = prop(false);
   }
 
   add(todo) {

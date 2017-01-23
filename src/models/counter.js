@@ -1,9 +1,10 @@
 import m from 'mithril';
+import prop from 'mithril/stream';
 
 export default class Counter {
   constructor(count = 0) {
     this.initialCount = count;
-    this.count = m.prop(count);
+    this.count = prop(count);
   }
 
   increment() {
